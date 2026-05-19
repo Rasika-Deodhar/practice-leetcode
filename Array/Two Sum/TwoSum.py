@@ -5,14 +5,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # O(n)
         k={}
-        currentSum=0
-        for i in range(len(nums)):
-            k[nums[i]]=i
+        for i,v in enumerate(nums):
+            k[target-v] = i
         print(k)
-        for i in range(len(nums)):
-            if target-nums[i] in k and k[target-nums[i]]!=i:
-                return[i,k[target-nums[i]]]
+        for i,v in enumerate(nums):
+            if v in k and k[v]!=i:
+                return [i,k[v]]
 
         # n-square
         # for i in range(len(nums)):
